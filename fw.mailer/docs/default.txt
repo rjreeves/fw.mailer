@@ -1,0 +1,16 @@
+            <html>
+            <h3>Fire Wise</h3>           
+
+            Hi <b>{{custname}}</b>
+          
+            <br>Your invoice/reference number is <b>{{invoicenumber}}</b> . . . please use this if paying by direct deposit.
+            <br>
+            <br>Your Fire Wise subscription renewal invoice is attached.
+            <br>Please ensure this payment is made promptly.
+            <br>
+            <br>Any changes should be notified by reply email.
+            <br>
+            <br>Gordon King
+            <br>gordon@fire-wise.com.au
+                       
+            </html>";

@@ -1,0 +1,15 @@
+            <html>
+            <h3>Fire Wise</h3>           
+
+            Hi <b>{{custname}}</b>
+          
+            <br>
+            <br>
+            <br>Your Copy of Fire Wise is now available at the website http://fire-wise.com.au
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>Gordon King
+            <br>gordon@fire-wise.com.au                       
+            </html>
