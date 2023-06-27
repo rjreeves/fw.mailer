@@ -34,7 +34,7 @@ namespace fw.mailer
 
         public static void send()
         {
-            Attachment attachment = new Attachment(attachment_path, MediaTypeNames.Application.Octet);
+            Attachment attachment = new Attachment(attachment_path, MediaTypeNames.Application.Pdf);
                                    
             MailAddress from = new MailAddress("Gordon@fire-wise.com.au", "Fire-Wise");
             MailAddress to = new MailAddress(email_to, "");
@@ -52,7 +52,7 @@ namespace fw.mailer
                 Port = 587,
             };
 
-                        
+            
             smtpClient.Send(message);
 
 
