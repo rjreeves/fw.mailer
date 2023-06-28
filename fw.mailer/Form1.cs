@@ -31,6 +31,12 @@ namespace fw.mailer
         {
 
             log.LogHead();
+            var e_file = (@"c:\Reports\EmailsSmtp");
+            if (File.Exists(e_file))
+            {
+                File.Delete(e_file);
+            }
+          
 
             this.toolStripStatusLabel1.Text = "  ";
             String[] folders = { "" };
@@ -56,7 +62,7 @@ namespace fw.mailer
         }
 
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)  
         {
             dataGridView1.DataSource = null;
             dt.Clear();
@@ -93,6 +99,7 @@ namespace fw.mailer
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            emailcounter = 0;
             stopwatch.Start();
             foreach (DataRow r in dt.Rows)
             {           
@@ -109,8 +116,15 @@ namespace fw.mailer
                 sendmail.mail_message = tp.get_mailmessage(r[0].ToString());
                 sendmail.email_subject = tp.get_subject(@"Message from Fire-Wise");
 
-                sendmail.send();
-                emailcounter++;                
+                if (sendmail.send())
+                {
+                    emailcounter++;
+                }
+                else
+                {
+                    log.LogWrite(sendmail.smtp_message);
+                }
+                
                 backgroundWorker1.ReportProgress(1);
             }
             stopwatch.Stop();

@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Net.Mail;
 using System.ComponentModel;
 using System.Net.Mime;
+using System.IO;
 
 namespace fw.mailer
 {
@@ -15,10 +16,11 @@ namespace fw.mailer
     {        
         public static string attachment_path;
         public static string mail_message;
-        public static string email_to;
-       // public static string email_from;
+        public static string email_to;       
         public static string email_subject;
         public static string template_option;
+        public static string smtp_message;
+        
 
 
         public static SmtpClient smtpClient = new SmtpClient("mail.fire-wise.com.au");
@@ -32,8 +34,9 @@ namespace fw.mailer
         }
 
 
-        public static void send()
+        public static Boolean send()
         {
+
             Attachment attachment = new Attachment(attachment_path, MediaTypeNames.Application.Pdf);
                                    
             MailAddress from = new MailAddress("Gordon@fire-wise.com.au", "Fire-Wise");
@@ -52,9 +55,23 @@ namespace fw.mailer
                 Port = 587,
             };
 
-            
-            smtpClient.Send(message);
+            try
+            {
+                smtpClient.Send(message);
+            }
+            catch (SmtpException ex)
+            {               
+                File.AppendAllText(@"c:\Reports\EmailsSmtp", ex.Message.ToString());
+                smtp_message = ex.Message.ToString();
+                return false;
+            }
+            catch (Exception ex)
+            {
+                File.AppendAllText(@"c:\Reports\EmailsEx", ex.Message.ToString());
+                return false;
+            }
 
+            return true;
 
         }
 
