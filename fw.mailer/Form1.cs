@@ -108,8 +108,9 @@ namespace fw.mailer
                 {
                         sendmail.email_to = r[0].ToString().Substring(0, splitpos);
                 }
-                log.LogWrite(sendmail.email_to);
 
+                log.LogWrite(sendmail.email_to);
+                
                 sendmail.attachment_path = r[0].ToString();
 
                 template_me tp = new template_me();
@@ -143,6 +144,8 @@ namespace fw.mailer
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             log.LogDone();
+            Form f = new Form2();
+            f.ShowDialog();
         }
     }
 }

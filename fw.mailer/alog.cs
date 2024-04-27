@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace fw.mailer
 {
@@ -39,6 +40,20 @@ namespace fw.mailer
             {
             }
         }
+
+        public string[] LogRead()
+        {
+            string[] r = new string[1000];
+            try
+            {
+                r = File.ReadAllLines(@"c:\Reports\email.log");                         
+            }
+            catch (Exception ex)
+            {
+            }
+            return r;
+        }
+
 
         public void Log(string logMessage, TextWriter txtWriter)
         {
