@@ -27,10 +27,8 @@ namespace fw.mailer.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("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")]
-       
+
+        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
