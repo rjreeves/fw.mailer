@@ -226,3 +226,4 @@ C:\Users\rreev\OneDrive\Documents\GitHub\fw.mailer\fw.mailer\bin\Debug\Newtonsof
 C:\Users\rreev\OneDrive\Documents\GitHub\fw.mailer\fw.mailer\obj\Debug\fw.mailer.csproj.AssemblyReference.cache
 C:\Users\rreev\OneDrive\Documents\GitHub\fw.mailer\fw.mailer\obj\Debug\fw.mailer.Form2.resources
 C:\Users\rreev\OneDrive\Documents\GitHub\fw.mailer\fw.mailer\obj\Debug\fw.mailer.csproj.Up2Date
+C:\Users\rreev\OneDrive\Documents\GitHub\fw.mailer\fw.mailer\obj\Debug\fw.mailer.exe.config

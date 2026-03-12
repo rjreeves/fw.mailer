@@ -63,7 +63,7 @@ namespace fw.mailer
 
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)  
-        {
+        {     
             dataGridView1.DataSource = null;
             dt.Clear();
             if (! dt.Columns.Contains("filename")) {
@@ -78,6 +78,20 @@ namespace fw.mailer
                 sendmail.template_option = "O";
             }
             FileInfo[] Files = d.GetFiles("*.pdf");
+
+            var cutoff = DateTime.Now.AddDays(-0);
+
+            bool isOlderThan2Days = Files[0].CreationTime < cutoff;
+
+            if (isOlderThan2Days)
+            {
+                var result = MessageBox.Show("First Invoice File is older than 2 days.\nYes - to continue emailing","Already emailed",
+                    MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                    { return; }                    
+            }
+            
+
             foreach (FileInfo file in Files)
             {                  
                 dt.Rows.Add(file);
